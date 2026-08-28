@@ -23,14 +23,46 @@ const state = {
 // ─── Keyboard Key Mapping ────────────────────────────────────────────────────
 
 const typeKeys = {
-  "+": { handle: handleOperator, bg: "bg-(--color-key-background)", bgActive: "bg-(--color-key-hover)" },
-  "-": { handle: handleOperator, bg: "bg-(--color-key-background)", bgActive: "bg-(--color-key-hover)" },
-  "*": { handle: handleOperator, bg: "bg-(--color-key-background)", bgActive: "bg-(--color-key-hover)" },
-  "/": { handle: handleOperator, bg: "bg-(--color-key-background)", bgActive: "bg-(--color-key-hover)" },
-  ".": { handle: handleDecimal, bg: "bg-(--color-key-background)", bgActive: "bg-(--color-key-hover)" },
-  "Enter": { handle: handleEquals, bg: "bg-(--color-key-equal-background)", bgActive: "bg-(--color-key-equal-hover)" },
-  "Backspace": { handle: handleDelete, bg: "bg-(--color-key-del-background)", bgActive: "bg-(--color-key-del-hover)" },
-  "Escape": { handle: resetCalculator, bg: "bg-(--color-key-del-background)", bgActive: "bg-(--color-key-del-hover)" },
+  "+": {
+    handle: handleOperator,
+    bg: "bg-(--color-key-background)",
+    bgActive: "bg-(--color-key-hover)",
+  },
+  "-": {
+    handle: handleOperator,
+    bg: "bg-(--color-key-background)",
+    bgActive: "bg-(--color-key-hover)",
+  },
+  "*": {
+    handle: handleOperator,
+    bg: "bg-(--color-key-background)",
+    bgActive: "bg-(--color-key-hover)",
+  },
+  "/": {
+    handle: handleOperator,
+    bg: "bg-(--color-key-background)",
+    bgActive: "bg-(--color-key-hover)",
+  },
+  ".": {
+    handle: handleDecimal,
+    bg: "bg-(--color-key-background)",
+    bgActive: "bg-(--color-key-hover)",
+  },
+  Enter: {
+    handle: handleEquals,
+    bg: "bg-(--color-key-equal-background)",
+    bgActive: "bg-(--color-key-equal-hover)",
+  },
+  Backspace: {
+    handle: handleDelete,
+    bg: "bg-(--color-key-del-background)",
+    bgActive: "bg-(--color-key-del-hover)",
+  },
+  Escape: {
+    handle: resetCalculator,
+    bg: "bg-(--color-key-del-background)",
+    bgActive: "bg-(--color-key-del-hover)",
+  },
 };
 
 // ─── Calculator Core Functions ───────────────────────────────────────────────
@@ -81,7 +113,7 @@ function handleOperator(value) {
     !state.waitingForOperand &&
     Number(state.currentValue) === 0
   ) {
-    console.error("Can't divided by zero");
+    showError("divide");
     return;
   } else {
     const result = resultValue();
@@ -136,6 +168,12 @@ function handleDelete() {
 
   const newCurrentValue = state.currentValue.slice(0, -1);
 
+  if (newCurrentValue === "-") {
+    state.currentValue = "0";
+    state.justCalculated = false;
+    updateDisplay();
+    return;
+  }
   if (!newCurrentValue.length) {
     state.currentValue = "0";
     if (state.previousValue) {
@@ -190,7 +228,7 @@ function updateDisplay() {
 }
 
 function formatNumber(value) {
-  if (value === "") return "0";
+  if (value === "" || value === "-") return "0";
   if (value.includes("e")) return value;
   const [integerPart, decimalPart] = value.split(".");
 
@@ -209,7 +247,9 @@ function formatResult(result) {
     return;
   }
 
-  if (result === 0) return "0";
+  if (result === 0) {
+    return "0";
+  }
 
   const magnitude = Math.floor(Math.log10(Math.abs(result)));
 
@@ -217,7 +257,7 @@ function formatResult(result) {
     return result.toExponential();
   }
 
-  return String(result);
+  return String(Number(result.toFixed(12)));
 }
 
 function countDigits(value) {

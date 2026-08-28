@@ -1,160 +1,160 @@
-
-
 @font-face {
-    font-family: "League Spartan";
-    src: url("/assets/font/LeagueSpartan-Bold.ttf") format(truetype);
+  font-family: "League Spartan";
+  src: url("/assets/font/LeagueSpartan-Bold.ttf") format(truetype);
 }
 @import "tailwindcss";
 
-
 @theme {
+  --font-league-spartan: "League Spartan", sans-serif;
 
-    --font-league-spartan: 'League Spartan', sans-serif;
+  /* colors */
+  /* theme 1 */
 
-    /* colors */
-      /* theme 1 */
+  /* gray */
+  --color-gray-100: hsl(0, 0%, 93%);
+  --color-gray-200: hsl(0, 0%, 90%);
+  --color-gray-300: hsl(0, 5%, 81%);
+  --color-gray-orange-400: hsl(28, 16%, 65%);
+  /* navy */
+  --color-navy-400: hsl(224, 51%, 76%);
+  --color-navy-700: hsl(225, 21%, 49%);
+  --color-navy-750: hsl(221, 14%, 31%);
+  --color-navy-800: hsl(224, 28%, 35%);
+  --color-navy-850: hsl(222, 26%, 31%);
+  --color-navy-900: hsl(223, 31%, 20%);
+  --color-navy-950: hsl(224, 36%, 15%);
+  /* red */
+  --color-red-400: hsl(6, 93%, 67%);
+  --color-red-600: hsl(6, 63%, 50%);
+  --color-red-800: hsl(6, 70%, 34%);
+  /* theme 2 */
+  /* gray */
+  --color-gray-900: hsl(60, 10%, 19%);
+  /* orange */
+  --color-orange-700: hsl(25, 98%, 40%);
+  --color-orange-800: hsl(25, 99%, 27%);
+  --color-orange-600: hsl(25, 100%, 61%);
+  /* blue */
+  --color-blue-500: hsl(185, 42%, 37%);
+  --color-blue-600: hsl(185, 58%, 25%);
+  /* teal */
+  --color-teal-400: hsl(185, 41%, 56%);
+  /* theme 3 */
+  /* purple */
+  --color-purple-400: hsl(285, 91%, 52%);
+  --color-purple-600: hsl(267, 54%, 44%);
+  --color-purple-750: hsl(290, 70%, 36%);
+  --color-purple-800: hsl(281, 89%, 26%);
+  --color-purple-850: hsl(268, 47%, 21%);
+  --color-purple-900: hsl(268, 71%, 12%);
+  --color-purple-950: hsl(268, 75%, 9%);
+  /* cyan */
+  --color-cyan-400: hsl(176, 100%, 44%);
+  --color-cyan-500: hsl(177, 92%, 70%);
+  /* yellow */
+  --color-yellow-300: hsl(52, 100%, 62%);
+  /* blue */
+  --color-blue-950: hsl(198, 20%, 13%);
 
-        /* gray */
-        --color-gray-100: hsl(0, 0%, 93%);
-        --color-gray-200: hsl(0, 0%, 90%);
-        --color-gray-300: hsl(0, 5%, 81%);
-        --color-gray-orange-400: hsl(28, 16%, 65%);
-        /* navy */
-        --color-navy-400: hsl(224, 51%, 76%);
-        --color-navy-700: hsl(225, 21%, 49%);
-        --color-navy-750: hsl(221, 14%, 31%);
-        --color-navy-800: hsl(224, 28%, 35%);
-        --color-navy-850: hsl(222, 26%, 31%);
-        --color-navy-900: hsl(223, 31%, 20%);
-        --color-navy-950: hsl(224, 36%, 15%);
-        /* red */
-        --color-red-400: hsl(6, 93%, 67%);
-        --color-red-600: hsl(6, 63%, 50%);
-        --color-red-800: hsl(6, 70%, 34%);
-      /* theme 2 */
-        /* gray */
-        --color-gray-900: hsl(60, 10%, 19%);
-        /* orange */
-        --color-orange-700: hsl(25, 98%, 40%);
-        --color-orange-800: hsl(25, 99%, 27%);
-        --color-orange-600: hsl(25, 100%, 61%);
-        /* blue */
-        --color-blue-500: hsl(185, 42%, 37%);
-        --color-blue-600: hsl(185, 58%, 25%);
-        /* teal */
-        --color-teal-400: hsl(185, 41%, 56%);
-      /* theme 3 */
-        /* purple */
-        --color-purple-400: hsl(285, 91%, 52%);
-        --color-purple-600: hsl(267, 54%, 44%);
-        --color-purple-750: hsl(290, 70%, 36%);
-        --color-purple-800: hsl(281, 89%, 26%);
-        --color-purple-850: hsl(268, 47%, 21%);
-        --color-purple-900: hsl(268, 71%, 12%);
-        --color-purple-950: hsl(268, 75%, 9%);
-        /* cyan */
-        --color-cyan-400: hsl(176, 100%, 44%);
-        --color-cyan-500: hsl(177, 92%, 70%);
-        /* yellow */
-        --color-yellow-300: hsl(52, 100%, 62%);
-        /* blue */
-        --color-blue-950: hsl(198, 20%, 13%);
-
-    /*breakpoints  */
-    --breakpoint-mobile: 36rem;
-    --breakpoint-desktop: 90rem;
-
-
+  /*breakpoints  */
+  --breakpoint-mobile: 36rem;
+  --breakpoint-desktop: 90rem;
 }
 
 @layer base {
-    body {
-        font-family: var(--font-league-spartan);
-        font-size: 32px;
-    }
+  body {
+    font-family: var(--font-league-spartan);
+    font-size: 32px;
+  }
 
-    *{
-        user-select: none;
-    }
-    :root{
-        --grid-customer-desktop: repeat(4, minmax(100px, 1fr));
-        --grid-customer-mobile: repeat(4, minmax(60px, 1fr));
-        --shadow-key: 0 4px 0 var(--color-key-shadow);
-        --shadow-key-del: 0 4px 0 var(--color-key-del-shadow);
-        --shadow-key-equal: 0 4px 0 var(--color-key-equal-shadow);
-    }
+  * {
+    user-select: none;
+  }
 
+  button:focus-visible {
+    outline: 3px solid var(--color-key-equal-background);
+    outline-offset: 3px;
+  }
+  :root {
+    --grid-customer-desktop: repeat(4, minmax(100px, 1fr));
+    --grid-customer-mobile: repeat(4, minmax(60px, 1fr));
+    --shadow-key: 0 4px 0 var(--color-key-shadow);
+    --shadow-key-del: 0 4px 0 var(--color-key-del-shadow);
+    --shadow-key-equal: 0 4px 0 var(--color-key-equal-shadow);
+  }
 
-     [data-theme="theme-1"] {
-        --color-background: var(--color-navy-850);
-        --color-toggle-background: var(--color-navy-900);
-        --color-toggle: var(--color-red-600);
-        --color-toggle-hover: var(--color-red-400);
-        --color-screen-background: var(--color-navy-950);
-        --color-keypad-background: var(--color-navy-900);
-        --color-key-background: var(--color-gray-200);
-        --color-key-shadow: var(--color-gray-orange-400);
-        --color-key-hover: var(--color-white);
-        --color-text-header: var(--color-white);
-        --color-text: var(--color-navy-750);
-        --color-key-toggle-shadow: var(--color-navy-800);
-        --color-key-equal-background: var(--color-red-600);
-        --color-key-equal-shadow: var(--color-red-800);
-        --color-key-equal-hover: var(--color-red-400);
-        --color-key-del-background: var(--color-navy-700);
-        --color-key-del-shadow: var(--color-navy-800);
-        --color-key-del-hover: var(--color-navy-400);
-        --color-toast-background: var(--color-navy-950);
-        --color-toast-text: var(--color-white);
-        --color-toast-accent: var(--color-red-600);
-    }
-    
-    [data-theme="theme-2"] {
-        --color-background: var(--color-gray-200);
-        --color-toggle-background: var(--color-gray-300);
-        --color-toggle: var(--color-orange-700);
-        --color-toggle-hover: var(--color-orange-600);
-        --color-screen-background: var(--color-gray-100);
-        --color-keypad-background: var(--color-gray-300);
-        --color-key-background: var(--color-gray-200);
-        --color-key-shadow: var(--color-gray-orange-400);
-        --color-key-hover: var(--color-white);
-        --color-text: var(--color-gray-900);
-        --color-text-header: var(--color-gray-900);
-        --color-key-toggle-shadow: var(--color-blue-600);
-        --color-key-equal-background: var(--color-orange-700);
-        --color-key-equal-shadow: var(--color-orange-800);
-        --color-key-equal-hover: var(--color-orange-600);
-        --color-key-del-background: var(--color-blue-500);
-        --color-key-del-shadow: var(--color-blue-600);
-        --color-key-del-hover: var(--color-teal-400);
-        --color-toast-background: var(--color-gray-900);
-        --color-toast-text: var(--color-gray-100);
-        --color-toast-accent: var(--color-orange-700);
-    }
+  [data-theme="theme-1"] {
+    --color-background: var(--color-navy-850);
+    --color-toggle-background: var(--color-navy-900);
+    --color-toggle: var(--color-red-600);
+    --color-toggle-hover: var(--color-red-400);
+    --color-screen-background: var(--color-navy-950);
+    --color-keypad-background: var(--color-navy-900);
+    --color-key-background: var(--color-gray-200);
+    --color-key-shadow: var(--color-gray-orange-400);
+    --color-key-hover: var(--color-white);
+    --color-text-header: var(--color-white);
+    --color-text: var(--color-navy-750);
+    --color-key-toggle-shadow: var(--color-navy-800);
+    --color-key-equal-background: var(--color-red-600);
+    --color-key-equal-shadow: var(--color-red-800);
+    --color-key-equal-hover: var(--color-red-400);
+    --color-key-equal-text: var(--color-white);
+    --color-key-del-background: var(--color-navy-700);
+    --color-key-del-shadow: var(--color-navy-800);
+    --color-key-del-hover: var(--color-navy-400);
+    --color-toast-background: var(--color-navy-950);
+    --color-toast-text: var(--color-white);
+    --color-toast-accent: var(--color-red-600);
+  }
 
-    [data-theme="theme-3"] {
-        --color-background: var(--color-purple-950);
-        --color-toggle-background: var(--color-purple-900);
-        --color-toggle: var(--color-cyan-500);
-        --color-toggle-hover: var(--color-cyan-300);
-        --color-screen-background: var(--color-purple-900);
-        --color-keypad-background: var(--color-purple-900);
-        --color-key-background: var(--color-purple-850);
-        --color-key-shadow: var(--color-purple-750);
-        --color-key-hover: var(--color-purple-600);
-        --color-text: var(--color-yellow-300);
-        --color-text-header: var(--color-yellow-300);
-        --color-key-toggle-shadow: var(--color-blue-950);
-        --color-key-equal-background: var(--color-cyan-500);
-        --color-key-equal-shadow: var(--color-cyan-400);
-        --color-key-equal-hover: var(--color-cyan-300);
-        --color-key-del-background: var(--color-purple-800);
-        --color-key-del-shadow: var(--color-purple-400);
-        --color-key-del-hover: var(--color-purple-750);
-        --color-toast-background: var(--color-purple-950);
-        --color-toast-text: var(--color-yellow-300);
-        --color-toast-accent: var(--color-cyan-400);
-    }
-    
+  [data-theme="theme-2"] {
+    --color-background: var(--color-gray-200);
+    --color-toggle-background: var(--color-gray-300);
+    --color-toggle: var(--color-orange-700);
+    --color-toggle-hover: var(--color-orange-600);
+    --color-screen-background: var(--color-gray-100);
+    --color-keypad-background: var(--color-gray-300);
+    --color-key-background: var(--color-gray-200);
+    --color-key-shadow: var(--color-gray-orange-400);
+    --color-key-hover: var(--color-white);
+    --color-text: var(--color-gray-900);
+    --color-text-header: var(--color-gray-900);
+    --color-key-toggle-shadow: var(--color-blue-600);
+    --color-key-equal-background: var(--color-orange-700);
+    --color-key-equal-shadow: var(--color-orange-800);
+    --color-key-equal-hover: var(--color-orange-600);
+    --color-key-equal-text: var(--color-white);
+    --color-key-del-background: var(--color-blue-500);
+    --color-key-del-shadow: var(--color-blue-600);
+    --color-key-del-hover: var(--color-teal-400);
+    --color-toast-background: var(--color-gray-900);
+    --color-toast-text: var(--color-gray-100);
+    --color-toast-accent: var(--color-orange-700);
+  }
+
+  [data-theme="theme-3"] {
+    --color-background: var(--color-purple-950);
+    --color-toggle-background: var(--color-purple-900);
+    --color-toggle: var(--color-cyan-500);
+    --color-toggle-hover: var(--color-cyan-300);
+    --color-screen-background: var(--color-purple-900);
+    --color-keypad-background: var(--color-purple-900);
+    --color-key-background: var(--color-purple-850);
+    --color-key-shadow: var(--color-purple-750);
+    --color-key-hover: var(--color-purple-600);
+    --color-text: var(--color-yellow-300);
+    --color-text-header: var(--color-yellow-300);
+    --color-key-toggle-shadow: var(--color-blue-950);
+    --color-key-equal-background: var(--color-cyan-500);
+    --color-key-equal-shadow: var(--color-cyan-400);
+    --color-key-equal-hover: var(--color-cyan-300);
+    --color-key-equal-text: var(--color-blue-950);
+    --color-key-del-background: var(--color-purple-800);
+    --color-key-del-shadow: var(--color-purple-400);
+    --color-key-del-hover: var(--color-purple-750);
+    --color-toast-background: var(--color-purple-950);
+    --color-toast-text: var(--color-yellow-300);
+    --color-toast-accent: var(--color-cyan-400);
+  }
 }
