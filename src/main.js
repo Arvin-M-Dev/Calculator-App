@@ -243,7 +243,7 @@ async function loadClickSound(url) {
   clickBuffer = await audioCtx.decodeAudioData(arrayBuffer);
 }
 
-loadClickSound("/click.mp3");
+loadClickSound("./click.mp3");
 
 function playClick() {
   if (!clickBuffer) return;
