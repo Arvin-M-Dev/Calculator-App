@@ -371,7 +371,7 @@ toggleTheme.addEventListener("click", () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  let getTheme = localStorage.getItem("toggle-theme");
+  const getTheme = localStorage.getItem("toggle-theme");
 
   if (getTheme) {
     const { theme, position } = JSON.parse(getTheme);
