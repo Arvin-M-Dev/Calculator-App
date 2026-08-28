@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-theme="theme-1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="icon" type="image/svg+xml" href="public/assets/images/favicon-32x32.png" />
+  </head>
+  <body class="bg-(--color-background) text-(--color-text) flex items-center justify-center min-h-screen" >
+    <audio src="./public/click.mp3"></audio>
+    <div class="mx-auto max-w-135 mobile:p-4">
+      <header class=" flex items-center justify-between mb-8">
+        <h2 class="text-(--color-text-header)">calc</h2>
+        <div class="text-(--color-text-header) flex items-end gap-8">
+          <p class="text-[14px]">THEME</p>
+          <div class="flex flex-col justify-center w-[70px]">
+            <div class="flex items-center justify-between px-2.5 text-[14px]">
+              <p class="">1</p>
+              <p class="">2</p>
+              <p class="">3</p>
+            </div>
+            <div id="toggle-theme" class="w-full group bg-(--color-toggle-background) h-7 p-1 rounded-full relative cursor-pointer">
+              <div class="transition-all absolute left-1/2 w-5 h-5 bg-(--color-toggle) group-hover:bg-(--color-toggle-hover)  rounded-full "></div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="max-w-84 mobile:max-w-full">
+        <div id="screen" class="scrollbar-thin scrollbar-track-transparent scrollbar-gutter-both scrollbar-thumb-(--color-key-del-background)  border-x-8 border-x-transparent overflow-x-auto text-right mb-6 rounded-xl px-6 mobile:px-8 py-5 mobile:py-6 bg-(--color-screen-background)">
+          <span id="result-calculator" class="text-(--color-text-header) text-[29px] mobile:text-[54px]">0</span>
+        </div>
+        <div class="bg-(--color-keypad-background) text-(--color-text) p-6 rounded-xl ">
+          <div class="grid grid-cols-(--grid-customer-mobile) mobile:grid-cols-(--grid-customer-desktop) gap-4 mobile:gap-5 ">
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="7" id="7" data-type="number">7</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="8" id="8" data-type="number">8</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="9" id="9" data-type="number">9</button>
+            <button class="outline-none flex items-end leading-12 justify-center h-14 rounded-lg bg-(--color-key-del-background) text-white hover:bg-(--color-key-del-hover) active:bg-(--color-key-del-hover) shadow-(--shadow-key-del) text-[26px] cursor-pointer" data-type="delete" id="Backspace">DEL</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="4" id="4" data-type="number">4</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="5" id="5" data-type="number">5</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="6" id="6" data-type="number">6</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="+" id="+" data-type="operator">+</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="1" id="1" data-type="number">1</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="2" id="2" data-type="number">2</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="3" id="3" data-type="number">3</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="-" id="-" data-type="operator">-</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="." id="." data-type="decimal">.</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="0" id="0" data-type="number">0</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="/" id="/" data-type="operator">/</button>
+            <button class="outline-none flex items-end justify-center h-14 rounded-lg transition-all bg-(--color-key-background) hover:bg-(--color-key-hover) active:bg-(--color-key-hover) shadow-(--shadow-key) cursor-pointer" data-value="*" id="*" data-type="operator">x</button>
+          </div>
+          <div class="relative grid grid-cols-2 gap-4 mt-5 mobile:mt-6 ">
+            <button class="outline-none flex items-end leading-12 justify-center text-[26px] h-14 bg-(--color-key-del-background) hover:bg-(--color-key-del-hover) active:bg-(--color-key-del-hover) rounded-lg text-white shadow-(--shadow-key-del) cursor-pointer" data-type="reset" id="Escape">RESET</button>
+            <button class="outline-none flex items-end justify-center h-14 bg-(--color-key-equal-background) hover:bg-(--color-key-equal-hover) active:bg-(--color-key-equal-hover) rounded-lg shadow-(--shadow-key-equal) text-white cursor-pointer" data-type="equal" id="Enter">=</button>
+
+            <div id="error-toast" class="pointer-events-none opacity-0 scale-95 transition-all duration-200 ease-out absolute left-1/2 -translate-x-1/2 -top-3 -translate-y-full z-10">
+              <div class="relative flex items-center gap-2 pl-3 pr-4 py-2.5 rounded-lg shadow-lg border-l-4 border-(--color-toast-accent) bg-(--color-toast-background) text-(--color-toast-text)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" class="shrink-0">
+                  <path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" stroke="var(--color-toast-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span id="error-toast-message" class="text-[13px] mobile:text-[14px] whitespace-nowrap">Can't divide by zero</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
