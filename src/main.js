@@ -348,7 +348,7 @@ buttons.forEach((btn) => {
 });
 
 toggleTheme.addEventListener("click", () => {
-  let currentTheme =
+  const currentTheme =
     document.documentElement.getAttribute("data-theme") ?? "theme-1";
 
   const newTheme = themes[currentTheme] ?? "theme-1";
